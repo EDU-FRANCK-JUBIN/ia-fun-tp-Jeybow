@@ -15,4 +15,9 @@ except ImportError:
     import Image
 import pytesseract
 
-print(pytesseract.image_to_string(Image.open('/home/benoit/git/python_tutos/tesseract/image_1.png)))
+# récupération de l'image vers du texte
+print(pytesseract.image_to_string(Image.open(r'C:\Users\Jérémie\Documents\GitHub\ia-fun-tp-Jeybow\Ceci_test.PNG')))
+# récupération de l'image vers des informations
+print(pytesseract.image_to_data(Image.open(r'C:\Users\Jérémie\Documents\GitHub\ia-fun-tp-Jeybow\Ceci_test.PNG')))
+# récupération de l'image vers l'orientation
+print(pytesseract.image_to_osd(Image.open(r'C:\Users\Jérémie\Documents\GitHub\ia-fun-tp-Jeybow\Ceci_test.PNG')))
