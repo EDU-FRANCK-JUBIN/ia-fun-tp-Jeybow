@@ -16,8 +16,10 @@ except ImportError:
 import pytesseract
 from pytesseract import Output
 import cv2
+from matplotlib import pyplot as plt
 
-simage = r'C:\Users\Jérémie\Documents\GitHub\ia-fun-tp-Jeybow\Ceci_test.PNG'
+
+simage = r'image_2.png'
 img = cv2.imread(simage)
 d = pytesseract.image_to_data(img, output_type=Output.DICT)
 
@@ -28,7 +30,8 @@ for i in range(NbBoites):
     (x, y, w, h) = (d['left'][i], d['top'][i], d['width'][i], d['height'][i])
     # Affiche un rectangle
     cv2.rectangle(img, (x,-y), (x + w, y + h), (0, 255, 0), 2)
-
+    
+plt.imshow(img)
 cv2.imshow('img', img)
 cv2.waitKey(0)
 cv2.destroyAllWindows ()
